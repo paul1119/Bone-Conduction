@@ -1,0 +1,65 @@
+#include <Wire.h>
+
+// Pin Definitions
+#define DATA_PIN 2       // PDM Microphone Data pin
+#define CLOCK_PIN 9      // PDM Microphone Clock pin
+#define OV7670_SCL A5    // I2C Clock for OV7670
+#define OV7670_SDA A4    // I2C Data for OV7670
+
+#define OV7670_ADDRESS 0x42 // OV7670 I2C address
+
+void setup() {
+  // Initialize Serial communication
+  Serial.begin(115200);
+
+  // PDM Microphone setup
+  pinMode(DATA_PIN, INPUT);   // Microphone data pin
+  pinMode(CLOCK_PIN, OUTPUT); // Microphone clock pin
+
+  // Configure Timer 1 for 1 MHz clock on pin 9
+  TCCR1A = _BV(COM1A0); // Toggle OC1A on Compare Match
+  TCCR1B = _BV(WGM12) | _BV(CS10); // CTC mode, no prescaling
+  OCR1A = 7; // Set output compare register for 1 MHz clock
+
+  // OV7670 Camera setup
+  Wire.begin(); // Initialize I2C
+  initCamera();
+}
+
+void loop() {
+  // Capture and transmit audio data
+  for (int i = 0; i < 64; i++) { // Adjust chunk size as needed
+    int pdmValue = digitalRead(DATA_PIN);
+    Serial.write(pdmValue); // Send PDM data to PC
+  }
+
+  // Capture and transmit a small portion of the image
+  captureCameraFrame();
+}
+
+// Function to initialize OV7670 camera
+void initCamera() {
+  writeCameraRegister(0x12, 0x80); // Reset all registers
+  delay(100);
+  writeCameraRegister(0x12, 0x14); // RGB mode, QVGA resolution
+  writeCameraRegister(0x11, 0x01); // Set clock prescaler
+  writeCameraRegister(0x6B, 0x0A); // PLL control
+  writeCameraRegister(0x0C, 0x04); // Enable RGB565 format
+  Serial.println("Camera initialized.");
+}
+
+// Function to write to OV7670 registers
+void writeCameraRegister(uint8_t reg, uint8_t value) {
+  Wire.beginTransmission(OV7670_ADDRESS >> 1);
+  Wire.write(reg);
+  Wire.write(value);
+  Wire.endTransmission();
+}
+
+// Function to capture and send camera frame data
+void captureCameraFrame() {
+  // Placeholder: Capture small data chunks for simplicity
+  for (int i = 0; i < 160; i++) { // Simulated small frame capture
+    Serial.write(0xAA); // Simulated pixel data
+  }
+}
