@@ -52,10 +52,17 @@ After obtaining the PDM data via serial, we use Python to process and visualize 
 
 2. **Processing with Python**:
    - Use Python scripts to read the PDM data.
-   - Use plot_pdm_data.py to plot recorded data.
-   - python plot_pdm_data.py --file_name test
    - Convert the PDM data to PCM format for easier analysis.
 
 3. **Plotting Waveforms**:
    - Use libraries like Matplotlib to plot the PDM and PCM data.
    - Visualize the waveforms for analysis and verification.
+3. **Plotting Waveforms**:
+   - Use libraries like Matplotlib to plot the PDM and PCM data.
+   - Visualize the waveforms for analysis and verification.
+
+   To run the Python script and plot the data, use the following command:
+   
+   ```
+   python plot_pdm_data.py --file_name test
+   ```
