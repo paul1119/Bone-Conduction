@@ -14,7 +14,9 @@ Current status, plot the received signal from BC_microphone. See images.
 Pulse Density Modulation (PDM) and Pulse Code Modulation (PCM) are two different methods for digital representation of analog signals. PDM represents the signal as a density of pulses, with a high density indicating a high signal level and a low density indicating a low signal level. PCM, on the other hand, represents the signal as a series of numerical values that correspond to the amplitude of the signal at regular intervals. <br/>
 1. https://users.ece.utexas.edu/~bevans/courses/realtime/lectures/10_Data_Conversion/AP_Understanding_PDM_Digital_Audio.pdf
 2. https://tomverbeure.github.io/2020/10/04/PDM-Microphones-and-Sigma-Delta-Conversion.html
-   
+
+![image](https://github.com/user-attachments/assets/666d5aaf-0401-4e56-b428-0ad21703cf2d)
+
 - **PDM (Pulse Density Modulation)**:
   - Encodes the signal by varying the density of pulses.
   - Used in applications like digital microphones.
@@ -54,8 +56,3 @@ After obtaining the PDM data via serial, we use Python to process and visualize 
 3. **Plotting Waveforms**:
    - Use libraries like Matplotlib to plot the PDM and PCM data.
    - Visualize the waveforms for analysis and verification.
-
----
-
-Feel free to customize and expand on these sections to fit your project’s specific details. Happy coding!
-![image](https://github.com/user-attachments/assets/666d5aaf-0401-4e56-b428-0ad21703cf2d)
