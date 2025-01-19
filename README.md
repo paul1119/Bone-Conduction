@@ -8,7 +8,7 @@
 
 ## Introduction
 For deeper explanation, you could go to proposal.pdf.<br/>
-Current status, plot the received signal from BC_microphone. See images. 
+Current status, plot the received signal from BC_microphone. See images directory. 
 
 ## Difference Between PDM and PCM Signals
 Pulse Density Modulation (PDM) and Pulse Code Modulation (PCM) are two different methods for digital representation of analog signals. PDM represents the signal as a density of pulses, with a high density indicating a high signal level and a low density indicating a low signal level. PCM, on the other hand, represents the signal as a series of numerical values that correspond to the amplitude of the signal at regular intervals. <br/>
