@@ -48,9 +48,12 @@ After obtaining the PDM data via serial, we use Python to process and visualize 
 1. **Obtain Data**:
    - Connect the Arduino Uno to your computer.
    - Use a serial monitor to capture the incoming PDM data.
+   - Use record_raw_pdm.py to record the output showed in serial.
 
 2. **Processing with Python**:
    - Use Python scripts to read the PDM data.
+   - Use plot_pdm_data.py to plot recorded data.
+   - python plot_pdm_data.py --file_name test
    - Convert the PDM data to PCM format for easier analysis.
 
 3. **Plotting Waveforms**:
